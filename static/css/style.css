@@ -1,0 +1,57 @@
+.row {
+    text-align:center;
+}
+
+.ai_infer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img { 
+    height: 50vh;
+    margin: 1em 0px;
+}
+
+.prob p {
+    margin: 0.2em 0px;
+}
+
+.filelabel{
+    display: inline-block;
+    position: relative;
+    background-color: #1877F2;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.5s;
+}
+.filelabel:hover{
+    background-color: #004db1;
+}
+.fileinput{
+    display: none;
+}
+
+.btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #eb6100;
+    border-bottom: 5px solid #b84c00;
+}
+
+.btn--orange:hover {
+    margin-top: 3px;
+    color: #fff;
+    background: #f56500;
+    border-bottom: 2px solid #b84c00;
+  }
+.btn--shadow {
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  }
+
+.btn--radius {
+border-radius: 100vh;
+}
