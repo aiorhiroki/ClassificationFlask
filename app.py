@@ -7,12 +7,9 @@ import tensorflow as tf
 import keras
 from keras_efficientnets import custom_objects
 
-graph = tf.get_default_graph()
-model = keras.models.load_model(
-        "models/model_EfficientNetB3-opt.hdf5",
-        custom_objects=custom_objects.get_custom_objects()
-)
 
+graph = tf.get_default_graph()
+model = keras.models.load_model("models/model_EfficientNetB3-opt.hdf5")
 model.summary()
 
 app = Flask(__name__, static_folder='static')
@@ -44,7 +41,6 @@ def send():
             in_img = np.expand_dims(img, axis=0) / 255.
             with graph.as_default():
                 preds = model.predict_on_batch(in_img)[0]
-            
             pred_cls = class_names[np.argmax(preds)]
             probs = [int(prob*100) for prob in list(preds)]
             payload = {
@@ -59,6 +55,3 @@ def send():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
